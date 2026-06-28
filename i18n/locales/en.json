@@ -1,0 +1,318 @@
+{
+	"common": {
+		"submit": "Submit",
+		"send": "Send",
+		"newChat": "New chat",
+		"or": "Or",
+		"loading": "Loading",
+		"more": "More",
+		"billing": "Billing",
+		"pro": "Pro",
+		"backToWorkspace": "Back to workspace",
+		"unsupportedImageType": "Unsupported image type",
+		"imageTooLarge": "Image is too large",
+		"unsupportedFileType": "Unsupported file type",
+		"cloudinaryInvalid": "Cloudinary response is invalid",
+		"stillProcessing": "Image is still processing",
+		"close": "Close",
+		"sidebar": "Sidebar",
+		"toggleSidebar": "Toggle sidebar",
+		"mobileSidebarDescription": "Displays the mobile sidebar."
+	},
+	"header": {
+		"home": "Home",
+		"features": "Features",
+		"pricing": "Pricing",
+		"dashboard": "Dashboard",
+		"login": "Login",
+		"account": "Account",
+		"signedIn": "Signed in",
+		"logOut": "Log out",
+		"language": "Language",
+		"workspaceSubtitle": "AI SaaS workspace",
+		"skipToContent": "Skip to content",
+		"mainNavigation": "Main navigation"
+	},
+	"auth": {
+		"loginTitle": "Welcome to Kairox AI",
+		"registerTitle": "Create your account",
+		"email": "Email",
+		"password": "Password",
+		"name": "Name",
+		"confirmPassword": "Confirm password",
+		"firstNamePlaceholder": "First name",
+		"signIn": "Sign in",
+		"createAccount": "Create Account",
+		"dontHaveAccount": "Don't have an account?",
+		"alreadyHaveAccount": "Already have an account?",
+		"createNow": "Create Now",
+		"successLogin": "Successfully authorized",
+		"successLoginDescription": "Redirecting to your dashboard.",
+		"failedLogin": "Failed to authorize",
+		"failedLoginDescription": "Check your email and password, then try again.",
+		"successRegister": "Account created",
+		"successRegisterDescription": "You can sign in now.",
+		"failedRegister": "Failed to create account",
+		"failedRegisterDescription": "Please check the form and try again.",
+		"validation": {
+			"nameRequired": "Name is required.",
+			"nameMin": "Name must be at least 2 characters.",
+			"email": "Invalid email",
+			"passwordMin": "Password must be at least 8 characters",
+			"passwordLetter": "The password must contain at least one letter.",
+			"passwordNumber": "The password must contain at least one number.",
+			"required": "Required field",
+			"passwordsMatch": "Passwords must match"
+		}
+	},
+	"dashboardNav": {
+		"workspace": "Workspace",
+		"writing": "Writing",
+		"imageTools": "Image tools",
+		"review": "Review",
+		"conversation": "Conversation",
+		"codeGeneration": "Code Generation",
+		"aiArticleWriter": "AI Article Writer",
+		"blogTitleGenerator": "Blog Title Generator",
+		"backgroundRemoval": "Background Removal",
+		"objectRemoval": "Object Removal",
+		"resumeReviewer": "Resume Reviewer",
+		"actions": {
+			"view": "View project",
+			"share": "Share project",
+			"delete": "Delete project"
+		}
+	},
+	"dashboardHeader": {
+		"search": "Search projects",
+		"newRun": "New run"
+	},
+	"dashboardHome": {
+		"title": "Choose what you want to create today",
+		"badge": "AI SaaS workspace",
+		"description": "Start with a conversation, generate code, write content, clean up images, or review a resume. Each tool is tuned for a specific job, so you do not have to start from a blank prompt.",
+		"startConversation": "Start with conversation",
+		"browseTools": "Browse tools",
+		"ready": "Ready to run",
+		"focusedTools": "7 focused AI tools",
+		"steps": [
+			"Choose a tool from the cards or sidebar",
+			"Paste your brief, text, code, or image",
+			"Review the result and save the useful version"
+		],
+		"library": "Tool library",
+		"workflows": "Workflows for writing, coding, images, and review",
+		"libraryDescription": "Pick the closest workflow now. You can switch tools later from the sidebar without losing the workspace context.",
+		"openTool": "Open tool",
+		"tools": {
+			"conversation": {
+				"description": "Ask questions, unpack ideas, compare options, or turn rough notes into a clear next step.",
+				"status": "Best for daily work"
+			},
+			"code": {
+				"description": "Draft components, explain errors, refactor snippets, and move from intent to working code faster.",
+				"status": "Developer ready"
+			},
+			"article": {
+				"description": "Create structured drafts with a useful outline, sharper sections, and cleaner transitions.",
+				"status": "Long-form"
+			},
+			"blog": {
+				"description": "Generate specific title angles for search, newsletters, product updates, and social posts.",
+				"status": "Fast ideas"
+			},
+			"background": {
+				"description": "Clean up product shots, profile photos, and campaign images without manual masking.",
+				"status": "Image cleanup"
+			},
+			"object": {
+				"description": "Erase unwanted objects from photos while keeping the surrounding scene natural.",
+				"status": "Photo repair"
+			},
+			"resume": {
+				"description": "Get a practical review of structure, wording, role fit, and missing proof points.",
+				"status": "Career help"
+			}
+		}
+	},
+	"chat": {
+		"promptRequired": "Prompt cannot be empty",
+		"conversationTitle": "Talk through an idea before you build it.",
+		"conversationDescription": "A focused chat workspace for strategy, product notes, prompt drafts, and quick reasoning.",
+		"conversationEmptyTitle": "Start with a clear thought",
+		"conversationEmptyDescription": "Describe the product idea, workflow, copy problem, or customer question. Kairox will help shape it into something useful.",
+		"conversationPlaceholder": "Ask Kairox AI about your product, code, copy, or customer problem...",
+		"conversationThinking": "Thinking through your message...",
+		"codeBadge": "Code chat",
+		"codeTitle": "Talk through the code you need.",
+		"codeDescription": "Ask for components, server routes, composables, refactors, or explanations. No setup panels, just a focused coding chat.",
+		"codeEmptyTitle": "Start with a code question",
+		"codeEmptyDescription": "Paste a snippet, describe a bug, or ask for a small implementation plan. Kairox will answer in the chat.",
+		"codePlaceholder": "Ask Kairox AI about a component, API handler, TypeScript type, bug, or refactor...",
+		"codeThinking": "Thinking through the code...",
+		"suggestions": {
+			"feedback": "Summarize user feedback from onboarding",
+			"checklist": "Write a launch checklist for the dashboard",
+			"compare": "Compare GPT-5 Nano and Mini for support replies",
+			"nuxtRoute": "Help me write a Nuxt server route",
+			"splitVue": "Explain how to split this Vue component",
+			"reviewHelper": "Review this TypeScript helper"
+		}
+	},
+	"article": {
+		"badge": "AI Article Writer",
+		"title": "Craft a useful article from a rough topic.",
+		"description": "Pick the scope, add a few notes, and let Kairox turn it into a structured draft you can edit.",
+		"topic": "Article topic",
+		"topicPlaceholder": "Example: how small SaaS teams can organize AI workflows",
+		"length": "Article length",
+		"notes": "Writing notes",
+		"notesPlaceholder": "Audience, angle, examples, facts, or points that must be included...",
+		"writing": "Writing article...",
+		"emptyTitle": "Your article will appear here",
+		"emptyDescription": "Start with a focused topic. The generated draft will keep headings, paragraphs, and lists readable.",
+		"loading": "Drafting the article...",
+		"validationTopic": "Article topic is required",
+		"lengths": {
+			"short": "Short (500-800 words)",
+			"medium": "Medium (900-1,200 words)",
+			"long": "Long (1,500-2,000 words)"
+		}
+	},
+	"blog": {
+		"badge": "Blog Title Generator",
+		"title": "Generate sharper blog title ideas.",
+		"description": "Enter a keyword, choose a category, and get title angles that are specific enough to edit and publish.",
+		"keyword": "Blog keyword",
+		"keywordPlaceholder": "Example: impact of AI on human life",
+		"category": "Blog category",
+		"generating": "Generating titles...",
+		"emptyTitle": "Generated titles will appear here",
+		"emptyDescription": "Try a specific keyword instead of a broad topic. Clear input usually gives stronger title angles.",
+		"loading": "Generating title ideas...",
+		"validationKeyword": "Blog keyword is required",
+		"validationCategory": "Blog category is required",
+		"categories": {
+			"General": "General",
+			"Technology": "Technology",
+			"Business": "Business",
+			"Health": "Health",
+			"Lifestyle": "Lifestyle",
+			"Education": "Education",
+			"Travel": "Travel",
+			"Marketing": "Marketing",
+			"Finance": "Finance"
+		}
+	},
+	"imageTools": {
+		"image": "Image",
+		"imageHint": "JPG, GIF or PNG. 2MB Max.",
+		"selectedPreview": "Selected image preview",
+		"removing": "Removing...",
+		"background": {
+			"badge": "Background Removal",
+			"title": "Remove image backgrounds cleanly.",
+			"description": "Upload a product shot, profile photo, or campaign image and prepare it for AI background cleanup.",
+			"previewTitle": "Clean image preview",
+			"previewDescription": "Your processed image will appear here after the removal API is connected.",
+			"processing": "Removing background...",
+			"resultAlt": "Background removal result preview",
+			"started": "Background removal started",
+			"startedDescription": "The processed image will appear when Cloudinary finishes the transformation."
+		},
+		"object": {
+			"badge": "Object Removal",
+			"title": "Erase unwanted objects from photos.",
+			"description": "Describe what should disappear, upload the image, and prepare the request for precise AI object cleanup.",
+			"prompt": "Describe object to remove",
+			"promptPlaceholder": "Example: person in the background, street sign, coffee cup...",
+			"previewTitle": "Edited image preview",
+			"previewDescription": "Your object removal result will appear here after the image API is connected.",
+			"processing": "Removing object...",
+			"resultAlt": "Object removal result preview",
+			"started": "Object removal started",
+			"startedDescription": "The edited image will appear when Cloudinary finishes the transformation."
+		},
+		"errors": {
+			"imageRequired": "Image is required",
+			"unsupported": "Please upload a JPG, PNG, or GIF image",
+			"tooLarge": "Please upload an image under 2MB.",
+			"invalidResponse": "The API did not return a processed image URL.",
+			"processing": "Cloudinary has not finished generating the image yet. Try again in a moment.",
+			"objectRequired": "Object description is required"
+		}
+	},
+	"resume": {
+		"badge": "Resume Reviewer",
+		"title": "Get a practical resume review.",
+		"description": "Upload a PDF resume and Kairox will review structure, wording, proof points, and missing context.",
+		"file": "Resume file",
+		"fileHint": "PDF only. 5MB Max.",
+		"upload": "Click to upload your resume",
+		"reviewing": "Reviewing resume...",
+		"emptyTitle": "Resume feedback will appear here",
+		"emptyDescription": "Upload a text-based PDF. Scanned PDFs may not contain readable text.",
+		"loading": "Reading and reviewing your resume...",
+		"analyzed": "Analyzed {count} PDF page | Analyzed {count} PDF pages",
+		"reviewed": "Resume reviewed",
+		"reviewedDescription": "The feedback is ready.",
+		"errors": {
+			"required": "Resume file is required",
+			"unsupported": "Please upload a PDF resume",
+			"tooLarge": "Please upload a PDF under 5MB"
+		}
+	},
+	"settings": {
+		"title": "Billing and plan",
+		"eyebrow": "Account settings",
+		"description": "Review your current plan, renewal details, and subscription settings.",
+		"unavailable": "Billing details are unavailable",
+		"unavailableDescription": "We could not load your plan right now. Your account has not been changed.",
+		"loadingBilling": "Loading billing information",
+		"tryAgain": "Try again",
+		"currentPlan": "Current plan",
+		"free": "Free",
+		"noRenewal": "No renewal",
+		"freeDescription": "You can explore every workflow with a small daily allowance. Upgrade when you need more room for regular work.",
+		"dailyUsage": "Daily usage",
+		"billingDetails": "Billing details",
+		"notRequired": "Not required",
+		"upgrade": "Upgrade to Pro",
+		"openingCheckout": "Opening checkout",
+		"proTitle": "Kairox Pro",
+		"proSubtitle": "More space to make things",
+		"benefits": [
+			"Unlimited access to every AI tool",
+			"Larger prompts and file uploads",
+			"Priority processing during busy hours"
+		],
+		"ending": "Ending",
+		"active": "Active",
+		"proCanceled": "Your subscription is canceled, but Pro access remains available until the current billing period ends.",
+		"proActive": "Your Pro subscription is active. You have full access to every Kairox AI tool.",
+		"manage": "Manage subscription",
+		"billingCycle": "Billing cycle",
+		"planPrice": "Plan price",
+		"perMonth": "per month",
+		"perInterval": "per {interval}",
+		"nextBilling": "Next billing date",
+		"accessEnds": "Access ends",
+		"notAvailable": "Not available",
+		"receipts": "Receipts and payment",
+		"receiptsDescription": "Open the secure billing portal to update your payment method, download receipts, or change your subscription.",
+		"openPortal": "Open billing portal",
+		"checkoutError": "Checkout could not be opened. Please try again."
+	},
+	"upgradeDialog": {
+		"title": "Upgrade to Kairox Pro",
+		"defaultMessage": "You used all 5 free generations for today.",
+		"upgrade": "Upgrade",
+		"opening": "Opening checkout"
+	},
+	"userCounter": {
+		"title": "Free generations",
+		"used": "{count} of {max} used today",
+		"upgrade": "Upgrade",
+		"label": "Upgrade plan"
+	}
+}
