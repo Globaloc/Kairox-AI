@@ -81,7 +81,7 @@ const onSubmit = form.handleSubmit(async (data) => {
 					<Button variant="outline" class="gap-2"
 						@click="signIn.social({
 						provider: 'google',
-						callbackURL: localePath('/dashboard')
+						callbackURL: localePath('/dashboard'),
 					})">
 						<Icon name="logos:google-icon" size="1.15rem" />
 						Google

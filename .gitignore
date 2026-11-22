@@ -30,6 +30,8 @@ logs
 *.sqlite
 *.sqlite3
 
+# other
+.claude
 /app/generated/prisma
-
 /app/generated/prisma
+skills-lock.json

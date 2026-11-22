@@ -8,7 +8,17 @@ import {
   LayoutDashboard,
   LogIn,
   LogOut,
+  Menu,
 } from "lucide-vue-next"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { Separator } from "@/components/ui/separator"
 import {
   Avatar,
   AvatarFallback,
@@ -34,19 +44,25 @@ import {
 const { fetchSession, logout, user } = useAuth()
 const { locale, setLocale, t } = useI18n()
 const localePath = useLocalePath()
+const route = useRoute()
 
 await fetchSession()
 
+const mobileOpen = ref(false)
+
 const links = computed(() => [
-  { label: t("header.home"), to: localePath("/") },
-  { label: t("header.features"), to: localePath({ path: "/", hash: "#features" }) },
-  { label: t("header.pricing"), to: localePath({ path: "/", hash: "#pricing" }) },
+  { label: t("header.home"), to: localePath("/"), hash: "" },
+  { label: t("header.features"), to: localePath({ path: "/", hash: "#features" }), hash: "#features" },
+  { label: t("header.pricing"), to: localePath({ path: "/", hash: "#pricing" }), hash: "#pricing" },
 ])
 
+const isActive = (hash: string) =>
+  route.path === localePath("/") && (route.hash || "") === hash
+
 const languageOptions = [
-  { code: "en", label: "English", shortLabel: "EN", flag: "🇺🇸" },
-  { code: "ru", label: "Русский", shortLabel: "RU", flag: "🇷🇺" },
-  { code: "tt", label: "Татарча", shortLabel: "TT", flag: "🇷🇺" },
+  { code: "en", label: "English", shortLabel: "EN" },
+  { code: "ru", label: "Русский", shortLabel: "RU" },
+  { code: "tt", label: "Татарча", shortLabel: "TT" },
 ] as const
 
 type LocaleCode = typeof languageOptions[number]["code"]
@@ -75,6 +91,11 @@ const isLoggedIn = computed(() => Boolean(user.value))
 const onLogout = async () => {
   await logout({ redirectTo: localePath("/") })
 }
+
+const onMobileLogout = async () => {
+  mobileOpen.value = false
+  await onLogout()
+}
 </script>
 
 <template>
@@ -93,13 +114,15 @@ const onLogout = async () => {
         </NuxtLink>
 
         <!-- Center: Nav -->
-        <nav class="mx-auto hidden items-center gap-2 md:flex" :aria-label="t('header.mainNavigation')">
+        <nav class="mx-auto hidden items-center gap-1 rounded-full bg-secondary/50 p-1 ring-1 ring-border/60 md:flex" :aria-label="t('header.mainNavigation')">
           <NuxtLink
             v-for="l in links"
-            :key="l.to"
+            :key="l.hash || 'home'"
             :to="l.to"
-            class="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-accent hover:text-accent-foreground"
-            active-class="bg-accent text-accent-foreground"
+            class="rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+            :class="isActive(l.hash)
+              ? 'bg-background text-foreground shadow-sm ring-1 ring-border/60'
+              : 'text-muted-foreground hover:text-foreground'"
           >
             {{ l.label }}
           </NuxtLink>
@@ -115,11 +138,8 @@ const onLogout = async () => {
             >
               <Languages class="hidden size-4 text-muted-foreground sm:block" />
               <SelectValue>
-                <span class="flex items-center gap-2">
-                  <span>{{ languageOptions.find((option) => option.code === currentLocale)?.flag }}</span>
-                  <span class="hidden text-sm font-semibold sm:inline">
-                    {{ languageOptions.find((option) => option.code === currentLocale)?.shortLabel }}
-                  </span>
+                <span class="text-sm font-semibold">
+                  {{ languageOptions.find((option) => option.code === currentLocale)?.shortLabel }}
                 </span>
               </SelectValue>
             </SelectTrigger>
@@ -129,11 +149,67 @@ const onLogout = async () => {
                 :key="option.code"
                 :value="option.code"
               >
-                <span>{{ option.flag }}</span>
                 <span>{{ option.label }}</span>
               </SelectItem>
             </SelectContent>
           </Select>
+
+          <Sheet v-model:open="mobileOpen">
+            <SheetTrigger as-child>
+              <Button variant="ghost" size="icon" class="size-10 md:hidden" :aria-label="t('header.menu')">
+                <Menu />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" class="w-72">
+              <SheetHeader>
+                <SheetTitle class="text-left">{{ t("header.menu") }}</SheetTitle>
+                <SheetDescription class="sr-only">{{ t("header.mainNavigation") }}</SheetDescription>
+              </SheetHeader>
+              <nav class="flex flex-col gap-1 px-4" :aria-label="t('header.mainNavigation')">
+                <NuxtLink
+                  v-for="l in links"
+                  :key="`mobile-${l.hash || 'home'}`"
+                  :to="l.to"
+                  class="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors"
+                  :class="isActive(l.hash) ? 'bg-secondary text-foreground' : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'"
+                  @click="mobileOpen = false"
+                >
+                  {{ l.label }}
+                </NuxtLink>
+
+                <Separator class="my-2" />
+
+                <NuxtLink
+                  :to="localePath('/dashboard')"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary/60 hover:text-foreground"
+                  @click="mobileOpen = false"
+                >
+                  <LayoutDashboard class="size-4" />
+                  {{ t("header.dashboard") }}
+                </NuxtLink>
+
+                <NuxtLink
+                  v-if="!isLoggedIn"
+                  :to="localePath('/auth/login')"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary/60 hover:text-foreground"
+                  @click="mobileOpen = false"
+                >
+                  <LogIn class="size-4" />
+                  {{ t("header.login") }}
+                </NuxtLink>
+
+                <button
+                  v-else
+                  type="button"
+                  class="flex items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary/60 hover:text-foreground"
+                  @click="onMobileLogout"
+                >
+                  <LogOut class="size-4" />
+                  {{ t("header.logOut") }}
+                </button>
+              </nav>
+            </SheetContent>
+          </Sheet>
 
           <DropdownMenu v-if="isLoggedIn">
             <DropdownMenuTrigger as-child>
@@ -185,10 +261,10 @@ const onLogout = async () => {
           </DropdownMenu>
 
           <Button v-else as-child size="sm" class="shadow-lg shadow-primary/20 active:scale-[0.98]">
-            <NuxtLink :to="localePath('/auth/login')">
+            <NuxtLink :to="localePath('/auth/login')" :aria-label="t('header.login')">
               <LogIn class="size-4" />
-              {{ t("header.login") }}
-              <ArrowRight class="size-4" />
+              <span class="hidden sm:inline">{{ t("header.login") }}</span>
+              <ArrowRight class="hidden size-4 sm:block" />
             </NuxtLink>
           </Button>
         </div>

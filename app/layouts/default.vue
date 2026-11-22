@@ -9,6 +9,7 @@
 		<main id="content" class="flex w-full flex-1">
 			<slot />
 		</main>
+		<Footer/>
 	</div>
 </template>
 

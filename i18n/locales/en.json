@@ -29,6 +29,7 @@
 		"signedIn": "Signed in",
 		"logOut": "Log out",
 		"language": "Language",
+		"menu": "Menu",
 		"workspaceSubtitle": "AI SaaS workspace",
 		"skipToContent": "Skip to content",
 		"mainNavigation": "Main navigation"
@@ -314,5 +315,224 @@
 		"used": "{count} of {max} used today",
 		"upgrade": "Upgrade",
 		"label": "Upgrade plan"
+	},
+	"landing": {
+		"badge": "7 AI tools · one account",
+		"title": {
+			"first": "Seven AI tools.",
+			"second": "One account."
+		},
+		"description": "Write articles, generate Nuxt components, review a resume, and clean up product photos without juggling seven subscriptions. Every tool opens in the same dashboard.",
+		"cta": {
+			"primary": "Open dashboard",
+			"secondary": "See all 7 tools"
+		},
+		"stats": {
+			"tools": "Tools in the dashboard",
+			"requests": "Free requests included",
+			"upload": "Max image upload"
+		},
+		"demo": {
+			"address": "kairox.ai/dashboard",
+			"live": "Live preview",
+			"prompt": "Prompt",
+			"copy": "Copy",
+			"copied": "Copied",
+			"tabs": {
+				"code": "Code",
+				"article": "Article",
+				"resume": "Resume",
+				"image": "Image"
+			},
+			"prompts": {
+				"code": "Create a Nuxt 4 composable that sends a prompt to my AI route",
+				"article": "Write an article about building AI tools with Nuxt 4",
+				"resume": "Review this resume for a fullstack developer role",
+				"image": "Remove the background from this product photo"
+			},
+			"codeChecks": {
+				"typed": "Typed Nuxt 4 / Vue 3 output",
+				"copy": "Copy-ready code blocks"
+			},
+			"article": {
+				"badge": "Draft",
+				"label": "Structured article output",
+				"title": "Building small AI tools with Nuxt 4",
+				"excerpt": "The useful AI products are rarely the biggest ones. A single tool that solves one repeated task is easier to ship, easier to explain, and easier to improve...",
+				"sections": {
+					"intro": "Introduction and the problem",
+					"body": "Main sections with examples",
+					"outro": "Conclusion and next steps"
+				}
+			},
+			"resume": {
+				"role": "Target role: Fullstack Developer",
+				"verdict": "ATS match: strong fit",
+				"score": "Sample score",
+				"matchStack": "Nuxt 4, Vue 3, and TypeScript experience",
+				"matchApi": "API and database work",
+				"gap": "add measurable project impact"
+			},
+			"image": {
+				"title": "Cloudinary background removal",
+				"badge": "PNG with transparency",
+				"before": "Original · JPG",
+				"after": "Result · transparent PNG"
+			},
+			"plan": "Free plan:",
+			"requests": "5 requests",
+			"open": "Open the dashboard"
+		},
+		"tools": {
+			"eyebrow": "What is inside",
+			"title": "Seven tools that already work.",
+			"description": "Grouped the way you would reach for them: writing, code, images, and one review tool. Each one is a single screen, not a workflow builder.",
+			"open": "Open tool",
+			"previewNote": "// typed and ready to paste",
+			"categories": {
+				"code": "Code",
+				"writing": "Writing",
+				"review": "Review",
+				"images": "Images"
+			},
+			"items": {
+				"code": {
+					"title": "Code Generation",
+					"description": "Describe the component or the fix. Get back typed Nuxt 4 and Vue 3 code in copy-ready blocks."
+				},
+				"conversation": {
+					"title": "AI Conversation",
+					"description": "A general chat for questions, rewrites, and debugging when a dedicated tool is overkill."
+				},
+				"article": {
+					"title": "AI Article Writer",
+					"description": "Turn a topic into a structured draft with headings, sections, and a readable flow."
+				},
+				"blog": {
+					"title": "Blog Title Generator",
+					"description": "Get a batch of title options for one post, then keep the one that fits the angle."
+				},
+				"resume": {
+					"title": "Resume Reviewer",
+					"description": "Upload a PDF resume and get an ATS-style score with the matches and gaps called out."
+				},
+				"background": {
+					"title": "Background Removal",
+					"description": "Drop a product shot and get a clean PNG with transparency preserved. JPG, PNG, or GIF up to 2 MB."
+				},
+				"object": {
+					"title": "Object Removal",
+					"description": "Erase an unwanted object from a photo and keep the rest of the frame intact."
+				}
+			}
+		},
+		"how": {
+			"eyebrow": "How it works",
+			"title": "Three steps from a rough idea to a finished result.",
+			"description": "No prompt library to manage and no workflow builder to learn. Open a tool, send one request, take the output.",
+			"steps": {
+				"account": {
+					"title": "Create an account",
+					"description": "Sign up with email and start on the Free plan. No card and no setup wizard."
+				},
+				"tool": {
+					"title": "Pick a tool",
+					"description": "Every tool opens in the same sidebar, so you never learn a second interface."
+				},
+				"result": {
+					"title": "Take the result",
+					"description": "Copy the code, save the article, or download the cleaned-up image."
+				}
+			},
+			"sample": {
+				"title": "Background Removal",
+				"badge": "Sample result",
+				"before": "Original · JPG, 1.8 MB",
+				"after": "Result · PNG, transparent",
+				"note": "Edges preserved without manual masking"
+			}
+		},
+		"pricing": {
+			"eyebrow": "Pricing",
+			"title": "Start free. Upgrade when five requests are not enough.",
+			"popular": "Most popular",
+			"plans": {
+				"free": {
+					"name": "Free",
+					"price": "$0",
+					"period": "forever",
+					"description": "Try every tool once before you decide.",
+					"items": [
+						"5 AI requests included",
+						"All 7 tools unlocked",
+						"Images up to 2 MB",
+						"No credit card required"
+					],
+					"cta": "Create free account"
+				},
+				"pro": {
+					"name": "Pro",
+					"price": "$12",
+					"period": "per month",
+					"description": "For steady writing, coding, and image work.",
+					"items": [
+						"Unlimited AI requests",
+						"All 7 tools unlocked",
+						"Images up to 2 MB",
+						"Cancel anytime"
+					],
+					"cta": "Start with Pro"
+				}
+			}
+		},
+		"faq": {
+			"eyebrow": "FAQ",
+			"title": "Questions before you sign up.",
+			"items": [
+				{
+					"question": "Do I need an account to use the tools?",
+					"answer": "Yes. Each request is counted against your account, so the dashboard needs a sign-in to track your remaining free requests."
+				},
+				{
+					"question": "What is included in the Free plan?",
+					"answer": "Five AI requests in total, spread across any of the seven tools. Image tools count as one request per upload."
+				},
+				{
+					"question": "Which image files can I upload?",
+					"answer": "JPG, PNG, and GIF up to 2 MB. Background removal returns a PNG with the transparency preserved."
+				},
+				{
+					"question": "What happens to my uploaded images?",
+					"answer": "Images are processed by Cloudinary and the result is returned to you. Nothing is published to a public gallery."
+				},
+				{
+					"question": "Can I use the output in my own work?",
+					"answer": "Yes. Generated articles, titles, code, and cleaned-up images are yours to keep and publish."
+				}
+			]
+		},
+		"finalCta": {
+			"title": "Your next draft, component, or clean cut is one prompt away.",
+			"description": "Start with five free requests. No card, no setup, no second dashboard to learn.",
+			"button": "Start free"
+		}
+	},
+	"footer": {
+		"tagline": "Seven AI tools in one dashboard for writing, code, images, and resume review.",
+		"product": "Product",
+		"tools": "Tools",
+		"account": "Account",
+		"links": {
+			"features": "Features",
+			"pricing": "Pricing",
+			"dashboard": "Dashboard",
+			"code": "Code Generation",
+			"articles": "Article Writer",
+			"images": "Image Tools",
+			"login": "Sign in",
+			"register": "Create account"
+		},
+		"rights": "© {year} Kairox AI. All rights reserved.",
+		"builtWith": "Built with Nuxt 4"
 	}
 }
