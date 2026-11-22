@@ -7,8 +7,8 @@
 **AI SaaS workspace — chat, code, writing, and image tools in one dashboard.**
 
 [Live Demo](https://kairox-ai-zeta.vercel.app/) ·
-[Report Bug](../../issues) ·
-[Request Feature](../../issues)
+[Report Bug](https://github.com/Globaloc/Kairox-AI/issues) ·
+[Request Feature](https://github.com/Globaloc/Kairox-AI/issues)
 
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxt&logoColor=white)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org)
@@ -63,8 +63,8 @@
 ### 1. Clone
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/kairox-ai.git
-cd kairox-ai
+git clone https://github.com/Globaloc/Kairox-AI.git
+cd Kairox-AI
 ```
 
 ### 2. Install dependencies
