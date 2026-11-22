@@ -1,327 +1,228 @@
+<div align="center">
+
+<img src="public/Kairox.svg" alt="Kairox AI" width="120" />
+
 # Kairox AI
 
-Kairox AI is an experimental AI SaaS workspace built with Nuxt, Vue 3, TypeScript, Prisma, Better Auth, Gemini, Cloudinary, and Polar.
+**AI SaaS workspace — chat, code, writing, and image tools in one dashboard.**
 
-The project combines several AI workflows in one authenticated dashboard: chat, code assistance, article writing, blog title generation, resume review, background removal, and object removal.
+[Live Demo](https://kairox-ai-zeta.vercel.app/) ·
+[Report Bug](../../issues) ·
+[Request Feature](../../issues)
 
-## Overview
+[![Nuxt 4](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxt&logoColor=white)](https://nuxt.com)
+[![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-Kairox AI was built as a full-stack web application, not only as a frontend prototype. It includes user authentication, protected API routes, database-backed usage limits, AI API integration, image processing, subscription logic, localization, and a responsive dashboard UI.
+</div>
 
-The main goal of the project is to provide a focused workspace where users can choose a specific AI tool, submit text or files, and receive a useful generated result from an external AI or image-processing service.
+---
 
 ## Features
 
-- AI conversation workspace for general product, writing, and planning tasks
-- Code-focused AI chat for Nuxt, Vue, TypeScript, and shadcn/vue projects
-- AI article writer with short, medium, and long output modes
-- Blog title generator with category selection
-- PDF resume reviewer with text extraction and AI feedback
-- Background removal for uploaded images
-- Object removal for uploaded images based on a text prompt
-- Email/password authentication
-- Google and GitHub OAuth authentication
-- Protected dashboard and server API routes
-- Free usage limit for non-Pro users
-- Polar checkout and customer portal integration
-- Multilingual interface: English, Russian, and Tatar
-- Light and dark color modes
-- Responsive dashboard layout with reusable UI components
+| Tool | Description |
+|---|---|
+| 💬 **Conversation** | General-purpose AI chat for product, writing, and planning tasks |
+| 💻 **Code Generation** | Focused AI assistant for Nuxt, Vue, TypeScript, and shadcn/vue |
+| ✍️ **AI Article Writer** | Long-form content with short / medium / long output modes |
+| 📰 **Blog Title Generator** | Category-aware headline suggestions |
+| 📄 **Resume Review** | Upload a PDF, get structured AI feedback |
+| 🖼️ **Background Removal** | Remove image background via Cloudinary |
+| ✂️ **Object Removal** | Remove specific objects from an image using a text prompt |
+| 🔐 **Auth** | Email/password + Google & GitHub OAuth (Better Auth) |
+| 🌍 **i18n** | English · Russian · Tatar |
+| 🌗 **Dark / Light** | System-aware color mode |
+| 💳 **Polar Billing** | Free plan with usage limits, Polar checkout for Pro |
+
+---
 
 ## Tech Stack
 
-### Frontend
+| Layer | Tools |
+|---|---|
+| **Framework** | Nuxt 4 · Vue 3 · TypeScript |
+| **UI** | Tailwind CSS v4 · shadcn/vue · Reka UI · Lucide icons |
+| **Forms** | vee-validate · Zod |
+| **Auth** | Better Auth (email + OAuth) |
+| **Database** | Prisma · SQLite · libSQL / Turso adapter |
+| **AI** | Gemini `2.5-flash-lite` via OpenAI-compatible SDK |
+| **Images** | Cloudinary SDK |
+| **Billing** | Polar SDK + Better Auth plugin |
+| **i18n** | `@nuxtjs/i18n` |
 
-- Nuxt 4
-- Vue 3
-- TypeScript
-- Tailwind CSS v4
-- shadcn/vue
-- Reka UI
-- Lucide icons
-- Nuxt Image
-- Nuxt Icon
-- Nuxt i18n
-- Nuxt Color Mode
-- VueUse and VueUse Motion
-- vee-validate
-- Zod
-- Vue Sonner
-- Nuxt MDC
+---
 
-### Backend
+## Quick Start
 
-- Nuxt server routes / Nitro
-- Better Auth
-- Prisma
-- SQLite schema with libSQL/Turso runtime adapter
-- OpenAI Node SDK configured for the Gemini OpenAI-compatible endpoint
-- Cloudinary Node SDK
-- Polar SDK and Polar Better Auth plugin
-- unpdf for PDF text extraction
+### Prerequisites
 
-## Main User Flow
+- **Node.js** ≥ 20
+- **npm** (or pnpm / yarn)
 
-1. A user opens the landing page and reviews the product features.
-2. The user signs in or creates an account using email/password, Google, or GitHub.
-3. After authentication, the user enters the dashboard.
-4. The user selects one of the available tools from the dashboard cards or sidebar.
-5. The frontend validates the form input with Zod and vee-validate.
-6. The request is sent to a protected Nuxt server API route.
-7. The backend checks the user session and validates the user's free or Pro status.
-8. The backend calls Gemini, Cloudinary, or another service depending on the selected tool.
-9. The response is returned to the frontend and rendered as markdown, text, or an image preview.
-10. If the free usage limit is exceeded, the user is shown an upgrade dialog connected to Polar checkout.
+### 1. Clone
 
-## Architecture
-
-```text
-app/
-  assets/          Global CSS and Tailwind theme variables
-  components/      Shared Vue components and dashboard components
-  components/ui/   shadcn/vue UI components
-  composables/     Client-side state and auth helpers
-  layouts/         Default and dashboard layouts
-  middleware/      Client-side route protection
-  pages/           Public pages, auth pages, and dashboard tools
-  plugins/         Nuxt plugins
-  utils/           Client-side helpers
-
-server/
-  api/             Nuxt server API routes
-  middleware/      Server-side API authentication middleware
-  services/        Auth, usage limits, and Polar integration
-  utils/           Prisma, Gemini/OpenAI, Cloudinary, and auth helpers
-
-prisma/
-  schema.prisma    Database schema
-  migrations/      Database migrations
-
-i18n/
-  locales/         English, Russian, and Tatar translations
-
-shared/
-  types/           Shared TypeScript types
-  utils/           Shared constants
+```bash
+git clone https://github.com/YOUR_USERNAME/kairox-ai.git
+cd kairox-ai
 ```
 
-## Backend API
-
-The project uses file-based Nuxt server routes.
-
-### Authentication
-
-- `server/api/auth/[...all].ts`
-
-Handles Better Auth requests.
-
-### User and billing state
-
-- `server/api/user.get.ts`
-
-Returns the current user's API usage count, Polar customer state, active subscription, and customer portal URL.
-
-### AI tools
-
-- `server/api/ai-tools/conversation.post.ts`
-- `server/api/ai-tools/code.post.ts`
-- `server/api/ai-tools/generate-article.post.ts`
-- `server/api/ai-tools/generate-blog-title.post.ts`
-- `server/api/ai-tools/review-resume.post.ts`
-
-These routes validate the authenticated user, check the free usage limit or Pro subscription, call Gemini through an OpenAI-compatible endpoint, and return the generated result.
-
-### Image tools
-
-- `server/api/cloudinary-tools/remove-background.post.ts`
-- `server/api/cloudinary-tools/remove-object.post.ts`
-
-These routes accept image uploads, validate file type and size, upload the image to Cloudinary, and return a transformed image URL.
-
-## Authentication
-
-Authentication is implemented with Better Auth.
-
-Supported sign-in methods:
-
-- Email and password
-- Google OAuth
-- GitHub OAuth
-
-Sessions and account data are stored through the Prisma adapter. Server middleware protects API routes under:
-
-- `/api/ai-tools`
-- `/api/cloudinary-tools`
-- `/api/user`
-
-Dashboard pages also use client-side route middleware to redirect unauthenticated users to the login page.
-
-## Database
-
-The database layer is implemented with Prisma.
-
-The schema includes:
-
-- `User` - user profile data
-- `Session` - active user sessions
-- `Account` - OAuth and password account records
-- `verification` - verification records used by Better Auth
-- `UserApiLimit` - per-user usage counter for the free plan
-
-The Prisma schema uses SQLite, while the runtime Prisma client is configured with the libSQL adapter and Turso-related environment variables.
-
-## AI Integration
-
-The project uses the OpenAI Node SDK with a Gemini OpenAI-compatible endpoint:
-
-```ts
-baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
-```
-
-The server routes use the `gemini-2.5-flash-lite` model for text generation tasks.
-
-Different tools use different prompts and output limits:
-
-- General conversation
-- Code assistant
-- Article writer
-- Blog title generator
-- Resume reviewer
-
-The resume reviewer also extracts readable text from uploaded PDF files before sending it to the AI model.
-
-## Image Processing
-
-Cloudinary is used for image upload and transformation.
-
-Implemented image workflows:
-
-- Background removal
-- Object removal using a text prompt
-
-The frontend validates accepted file types and file size before submitting the form. The backend repeats validation before uploading the image to Cloudinary.
-
-## Subscription and Usage Limits
-
-The project has a free usage limit:
-
-```ts
-MAX_COUNT = 5
-```
-
-For non-Pro users, successful AI or image-processing requests increase the usage counter stored in the database.
-
-Polar is used for:
-
-- Checkout
-- Customer portal
-- Subscription status
-- Webhooks
-- Usage integration
-
-If the user has an active Polar subscription, the API limit is not incremented.
-
-## Localization
-
-The interface supports three locales:
-
-- English
-- Russian
-- Tatar
-
-Translations are stored in `i18n/locales`.
-
-## Environment Variables
-
-Create a `.env` file based on `.env.example`.
-
-```env
-BETTER_AUTH_SECRET=""
-BETTER_AUTH_URL=""
-
-NUXT_TURSO_DATABASE_URL=""
-NUXT_TURSO_AUTH_TOKEN=""
-NUXT_PUBLIC_APP_ENV=""
-
-NUXT_GITHUB_CLIENT_ID=""
-NUXT_GITHUB_CLIENT_SECRET=""
-
-NUXT_GOOGLE_CLIENT_ID=""
-NUXT_GOOGLE_CLIENT_SECRET=""
-
-NUXT_GIMINI_API_KEY=""
-
-NUXT_CLOUDINARY_CLOUD_NAME=""
-NUXT_CLOUDINARY_API_KEY=""
-NUXT_CLOUDINARY_API_SECRET=""
-
-NUXT_POLAR_ACCESS_TOKEN=""
-NUXT_POLAR_SERVER=""
-NUXT_POLAR_WEBHOOK_SECRET=""
-NUXT_POLAR_PRODUCT_ID=""
-```
-
-Note: the project currently uses the environment variable name `NUXT_GIMINI_API_KEY` in the code.
-
-## Getting Started
-
-Install dependencies:
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-Prepare Nuxt:
+### 3. Configure environment variables
 
 ```bash
-npm run postinstall
+cp .env.example .env
 ```
 
-Run the development server:
+Open `.env` and fill in your own keys — see the table below.
+
+<details>
+<summary><strong>📋 Environment variables reference</strong> (click to expand)</summary>
+
+| Variable | Required | How to get it |
+|---|---|---|
+| `BETTER_AUTH_SECRET` | ✅ | Generate: `npx better-auth generate` |
+| `BETTER_AUTH_URL` | ✅ | `http://localhost:3000` for local dev |
+| `NUXT_TURSO_DATABASE_URL` | ✅ | `file:./dev.db` for local SQLite, or a Turso URL |
+| `NUXT_TURSO_AUTH_TOKEN` | ⬜ | Turso dashboard token. Leave empty for local SQLite |
+| `NUXT_PUBLIC_APP_ENV` | ⬜ | Free label, e.g. `development` |
+| `NUXT_GITHUB_CLIENT_ID` | ⬜ | [GitHub OAuth Apps](https://github.com/settings/developers) → Client ID |
+| `NUXT_GITHUB_CLIENT_SECRET` | ⬜ | Same page → Client Secret |
+| `NUXT_GOOGLE_CLIENT_ID` | ⬜ | [Google Cloud Console](https://console.cloud.google.com/apis/credentials) → OAuth credentials |
+| `NUXT_GOOGLE_CLIENT_SECRET` | ⬜ | Same page → Client Secret |
+| `NUXT_GIMINI_API_KEY` | ✅* | [Google AI Studio](https://aistudio.google.com/apikey) → Create API key. *Required for all AI tools* |
+| `NUXT_CLOUDINARY_CLOUD_NAME` | ✅* | [Cloudinary Dashboard](https://console.cloudinary.com) → Cloud name |
+| `NUXT_CLOUDINARY_API_KEY` | ✅* | Cloudinary Dashboard → API Key |
+| `NUXT_CLOUDINARY_API_SECRET` | ✅* | Cloudinary Dashboard → API Secret |
+| `NUXT_POLAR_ACCESS_TOKEN` | ⬜ | [Polar Dashboard](https://polar.sh) → Settings → Access Tokens |
+| `NUXT_POLAR_SERVER` | ⬜ | `sandbox` or `production` |
+| `NUXT_POLAR_WEBHOOK_SECRET` | ⬜ | Polar → Webhooks → Signing secret |
+| `NUXT_POLAR_PRODUCT_ID` | ⬜ | Polar → Products → your Pro product ID |
+
+> **Minimum to run AI tools locally:** `BETTER_AUTH_SECRET` + `BETTER_AUTH_URL` + `NUXT_GIMINI_API_KEY`.
+> Image tools additionally require the three `NUXT_CLOUDINARY_*` variables.
+> OAuth and Polar are optional — the app runs fine without them.
+
+</details>
+
+### 4. Prepare the database
+
+The project uses a local SQLite file (`prisma/dev.db`) out of the box:
+
+```bash
+npx prisma migrate dev
+npx prisma generate
+```
+
+### 5. Run
 
 ```bash
 npm run dev
 ```
 
-Open the local app:
+Open **http://localhost:3000** — you're in.
 
-```text
-http://localhost:3000
+---
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Dev server at `http://localhost:3000` |
+| `npm run build` | Production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run generate` | Static site generation |
+| `npx prisma migrate dev` | Apply or create DB migrations |
+| `npx prisma generate` | Regenerate Prisma client after schema changes |
+| `npx prisma studio` | Browse the database in Prisma Studio |
+
+---
+
+## Project Structure
+
+```
+app/
+  assets/              Global CSS and Tailwind theme
+  components/
+    ui/                shadcn/vue primitives
+  composables/         Auth and shared state helpers
+  layouts/             default · dashboard
+  middleware/          auth.ts · guest.ts   ← route guards
+  pages/
+    auth/              login · register
+    dashboard/         all AI and image tools
+  plugins/             Nuxt plugins
+
+server/
+  api/
+    ai-tools/          conversation · code · article · blog-title · resume
+    auth/              Better Auth catch-all
+    cloudinary-tools/  remove-background · remove-object
+    user.get.ts        usage count + subscription state
+  middleware/          auth.ts   ← protects /api/* routes
+  services/            auth · polar · usage limits
+  utils/               prisma · gemini · cloudinary helpers
+
+prisma/
+  schema.prisma        SQLite schema
+  migrations/
+
+i18n/locales/
+  en.json · ru.json · tt.json
+
+shared/
+  types/               Shared TypeScript types
+  utils/               Constants
 ```
 
-Build for production:
+---
 
-```bash
-npm run build
-```
+## Routes
 
-Preview the production build locally:
+| Route | Access | Description |
+|---|---|---|
+| `/` | Public | Landing page |
+| `/auth/login` | Guests only | Sign in — email / Google / GitHub |
+| `/auth/register` | Guests only | Create an account |
+| `/dashboard` | 🔒 Auth | Tool picker |
+| `/dashboard/conversation` | 🔒 Auth | AI chat |
+| `/dashboard/code-generation` | 🔒 Auth | Code assistant |
+| `/dashboard/ai-article-writer` | 🔒 Auth | Article writer |
+| `/dashboard/blog-title-generator` | 🔒 Auth | Title generator |
+| `/dashboard/review-resume` | 🔒 Auth | PDF resume reviewer |
+| `/dashboard/background-removal` | 🔒 Auth | Background removal |
+| `/dashboard/object-removal` | 🔒 Auth | Object removal |
+| `/dashboard/settings` | 🔒 Auth | Account & billing |
 
-```bash
-npm run preview
-```
+---
 
-## Project Status
+## Free Plan Limits
 
-This is a portfolio and educational full-stack project. It demonstrates how a modern AI SaaS-style application can combine:
+Non-Pro users get **5 AI / image requests** before the upgrade dialog appears.
+The counter is stored per user in `UserApiLimit`. An active Polar subscription removes the limit.
 
-- authentication
-- database-backed user state
-- protected server APIs
-- external AI APIs
-- image processing APIs
-- subscription logic
-- localized dashboard UI
+---
 
 ## Security Notes
 
-Before publishing or deploying the project, make sure that:
+- `.env` is listed in `.gitignore` — **never commit it**.
+- Server middleware (`server/middleware/auth.ts`) protects `/api/ai-tools`, `/api/cloudinary-tools`, and `/api/user`.
+- Client middleware (`app/middleware/`) guards dashboard pages and auth pages.
+- Store production secrets only in your hosting provider's environment settings.
 
-- `.env` is not committed
-- real API keys are not committed
-- local database files with private data are not committed
-- production secrets are stored only in the hosting provider's environment settings
+---
 
-## Author
+## Live Demo
 
-Built by Dzhamil as a full-stack AI SaaS portfolio project.
+🚀 **[kairox-ai-zeta.vercel.app](https://kairox-ai-zeta.vercel.app/)**
+
+---
+
+<p align="center">
+  Built by <strong>Dzhamil</strong> · MIT License
+</p>
