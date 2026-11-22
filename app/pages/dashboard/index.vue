@@ -16,6 +16,7 @@ import {
 
 definePageMeta({
 	layout: "dashboard",
+	middleware: "auth",
 })
 
 useHead({

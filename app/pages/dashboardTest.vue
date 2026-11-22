@@ -37,7 +37,8 @@ import {
 } from "lucide-vue-next";
 
 definePageMeta({
-	layout: 'dashboard'
+	layout: 'dashboard',
+	middleware: "auth"
 })
 
 const localePath = useLocalePath()

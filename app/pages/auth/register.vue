@@ -28,6 +28,10 @@ import { Separator } from "@/components/ui/separator";
 const { t } = useI18n();
 const localePath = useLocalePath();
 
+definePageMeta({
+	middleware: "guest",
+});
+
 const schema = z.object({
 	name: z
 		.string({
