@@ -6,6 +6,8 @@
 
 **AI SaaS workspace — chat, code, writing, and image tools in one dashboard.**
 
+Built from scratch as an academic portfolio project: full-stack Nuxt application with real authentication, a database, protected server APIs, external AI and image-processing services, and subscription billing.
+
 [Live Demo](https://kairox-ai-zeta.vercel.app/) ·
 [Report Bug](https://github.com/Globaloc/Kairox-AI/issues) ·
 [Request Feature](https://github.com/Globaloc/Kairox-AI/issues)
@@ -224,5 +226,5 @@ The counter is stored per user in `UserApiLimit`. An active Polar subscription r
 ---
 
 <p align="center">
-  Built by <strong>Dzhamil</strong> · MIT License
+  Built by <strong>Dzhamil</strong> · Academic portfolio project
 </p>
